@@ -22,7 +22,19 @@ int main()
             }
         }
     }
-    std::cout << "Total letters: " << letterCount << std::endl;
-    std::cout << "Vowels: " << vowelCount << std::endl;
-    std::cout << "Consonants: " << consonantCount << std::endl;
+    cout << "Total letters: " << letterCount << std::endl;
+    cout << "Vowels: " << vowelCount << std::endl;
+    cout << "Consonants: " << consonantCount << std::endl;
+
+
+
+    vector<string> res = myfunction.split(lorem, ' ');
+    string longesttext = "";
+    for (int i = 0; i < res.size(); i++) {
+        if (res[i].size() > longesttext.size()) {
+            longesttext = res[i];
+        }
+    }
+    cout << "cel mai lung cunvand este " << longesttext;
+
 }
