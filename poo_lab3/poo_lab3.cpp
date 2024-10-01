@@ -1,7 +1,28 @@
 #include "connection.cpp";
+#include "tmake.h"
 
 int main()
 {
-	char lorem = "Lorem ipsum odor amet, consectetuer adipiscing elit. Sollicitudin fringilla nibh varius mauris posuere euismod velit. Vulputate nisi consequat pretium leo vulputate, arcu in ante arcu. Habitant feugiat duis hendrerit ipsum interdum inceptos in placerat cras. Litora sociosqu facilisis tincidunt nascetur pellentesque sem ante posuere taciti. Luctus faucibus donec cras sociosqu varius platea risus placerat potenti. Nulla curae class facilisis tempor diam ante molestie nulla? Ullamcorper magnis litora iaculis magnis egestas curae. Euismod maximus est eu maximus hendrerit hac. Pretium erat placerat mattis cursus varius. Velit platea fringilla magnis consectetur amet viverra vehicula sem curae. Sapien quam duis aliquam himenaeos congue class. Ullamcorper donec massa rhoncus auctor suspendisse maximus. Platea tristique dolor dapibus tristique, conubia maecenas efficitur sapien. Phasellus pellentesque duis blandit libero libero sociosqu proin. Aenean lacus iaculis est sem praesent nec erat.";
-	cout << lorem;
+	string lorem = "lol kek 4eburek. padla ti bleati.";
+	tmake myfunction;
+	cout << "numarul de cuvinte = " << myfunction.numberOfWords(lorem)<< endl;
+	cout << "numarul de propozitii = " << myfunction.numberOfSentences(lorem)<< endl;
+
+
+    int letterCount = 0, vowelCount = 0, consonantCount = 0;
+
+    for (char ch : lorem) {
+        if (std::isalpha(ch)) {
+            letterCount++;  // It's a letter
+            if (myfunction.isVowel(ch)) {
+                vowelCount++;  // It's a vowel
+            }
+            else {
+                consonantCount++;  // It's a consonant
+            }
+        }
+    }
+    std::cout << "Total letters: " << letterCount << std::endl;
+    std::cout << "Vowels: " << vowelCount << std::endl;
+    std::cout << "Consonants: " << consonantCount << std::endl;
 }
