@@ -3,16 +3,29 @@
 
 int main()
 {
-	string lorem = "lol kek 4eburek. padla ti bleati.";
+	string lorem = "salut danikus cum la tine danikus";
+
+    //erase "," from string
+    for (int i = 0; i < lorem.size();) {
+        if (lorem[i] == ',') {
+            lorem.erase(i, 1);
+        }
+        else {
+            i++;
+        }
+    }
+
+
 	tmake myfunction;
 	cout << "numarul de cuvinte = " << myfunction.numberOfWords(lorem)<< endl;
 	cout << "numarul de propozitii = " << myfunction.numberOfSentences(lorem)<< endl;
 
 
-    int letterCount = 0, vowelCount = 0, consonantCount = 0;
 
+    //geting letter, vowel, consonants
+    int letterCount = 0, vowelCount = 0, consonantCount = 0;
     for (char ch : lorem) {
-        if (std::isalpha(ch)) {
+        if (isalpha(ch)) {
             letterCount++;  // It's a letter
             if (myfunction.isVowel(ch)) {
                 vowelCount++;  // It's a vowel
@@ -27,7 +40,7 @@ int main()
     cout << "Consonants: " << consonantCount << std::endl;
 
 
-
+    //getting longest word
     vector<string> res = myfunction.split(lorem, ' ');
     string longesttext = "";
     for (int i = 0; i < res.size(); i++) {
@@ -35,6 +48,30 @@ int main()
             longesttext = res[i];
         }
     }
-    cout << "cel mai lung cunvand este " << longesttext;
+    cout << "cel mai lung cunvand este " << longesttext << endl;
 
+
+    //make tabel of most used words
+    vector <topwords> mytop = myfunction.totop(res);
+
+
+
+    //sort table of most used words
+    for (int i = 1; i != 0;) {
+        i = 0;
+        for (int j = 0; j < mytop.size()-1; j++) {
+            if (mytop[j].number < mytop[j + 1].number) {
+                topwords temptop;
+                temptop = mytop[j];
+                mytop[j] = mytop[j + 1];
+                mytop[j+ 1] = temptop;
+                i = 1;
+                cout << "lol";
+            }
+        }
+    }
+    //show top 
+    for (int i = 0; i < mytop.size(); i++) {
+        cout << mytop[i].word << " = " << mytop[i].number << endl;
+    }
 }

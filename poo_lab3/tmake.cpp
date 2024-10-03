@@ -34,3 +34,27 @@ vector<string> tmake::split(string str, char delimiter)
 	return res;
 }
 
+vector <topwords> tmake::totop(vector<string> recivedtop)
+{
+	vector <topwords> result;
+	topwords temptop;
+	for (int i = 0; i < recivedtop.size(); i++) {
+		temptop.word = recivedtop[i];
+		temptop.number = 1;
+		for (int j = i+1; j < recivedtop.size();) {
+			if (recivedtop[i] == recivedtop[j]) {
+				recivedtop.erase(recivedtop.begin() + j);
+				temptop.number++;
+			}
+			else ++j;
+		}
+		result.push_back(temptop);
+	}
+	return result;
+}
+
+bool tmake::compareInterval(topwords i1, topwords i2)
+{
+	return (i1.number > i2.number);
+}
+

@@ -10,6 +10,10 @@
 
 using namespace std;
 
+struct topwords {
+	int number;
+	string word;
+};
 
 static void pressToMenu() {
     cin.ignore();
